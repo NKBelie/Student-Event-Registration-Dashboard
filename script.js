@@ -67,3 +67,26 @@ const eventContainer = document.getElementById("eventContainer");
 
     updateStatistics();
 }
+
+function updateStatistics() {
+
+    document.getElementById("totalEvents").textContent =
+        events.length;
+
+    const registeredStudents = events.reduce(
+        (total, event) => total + event.registered,
+        0
+    );
+
+    document.getElementById("totalRegistered").textContent =
+        registeredStudents;
+
+    const availableSeats = events.reduce(
+        (total, event) =>
+        total + (event.seats - event.registered),
+        0
+    );
+
+    document.getElementById("totalSeats").textContent =
+        availableSeats;
+}
