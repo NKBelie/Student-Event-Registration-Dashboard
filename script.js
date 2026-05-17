@@ -122,3 +122,41 @@ function cancelRegistration(id) {
 
     }
 }
+const form = document.getElementById("eventForm");
+
+    form.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    const title =
+        document.getElementById("title").value.trim();
+
+    const category =
+        document.getElementById("category").value.trim();
+
+    const seats =
+        Number(document.getElementById("seats").value);
+
+    if (!title || !category || seats <= 0) {
+
+        alert("Please fill all fields correctly.");
+
+        return;
+    }
+
+    const newEvent = {
+        id: Date.now(),
+        title,
+        category,
+        seats,
+        registered: 0
+    };
+
+    events.push(newEvent);
+
+    saveToLocalStorage();
+
+    renderEvents();
+
+    form.reset();
+});
