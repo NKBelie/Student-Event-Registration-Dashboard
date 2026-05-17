@@ -160,3 +160,19 @@ const form = document.getElementById("eventForm");
 
     form.reset();
 });
+
+const searchInput =
+    document.getElementById("searchInput");
+
+    searchInput.addEventListener("input", function() {
+
+    const value =
+        searchInput.value.toLowerCase();
+
+    const filteredEvents = events.filter(event =>
+        event.title.toLowerCase().includes(value) ||
+        event.category.toLowerCase().includes(value)
+    );
+
+    renderEvents(filteredEvents);
+});
