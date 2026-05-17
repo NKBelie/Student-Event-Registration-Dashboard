@@ -108,3 +108,17 @@ function registerEvent(id) {
 
     }
 }
+function cancelRegistration(id) {
+
+    const event = events.find(e => e.id === id);
+
+    if (event.registered > 0) {
+
+        event.registered--;
+
+        saveToLocalStorage();
+
+        renderEvents();
+
+    }
+}
