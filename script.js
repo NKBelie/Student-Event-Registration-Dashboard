@@ -90,3 +90,21 @@ function updateStatistics() {
     document.getElementById("totalSeats").textContent =
         availableSeats;
 }
+function registerEvent(id) {
+
+    const event = events.find(e => e.id === id);
+
+    if (event.registered < event.seats) {
+
+        event.registered++;
+
+        saveToLocalStorage();
+
+        renderEvents();
+
+    } else {
+
+        alert("No seats available!");
+
+    }
+}
