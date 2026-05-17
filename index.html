@@ -49,5 +49,19 @@
             <p id="totalSeats" class="text-3xl mt-2">0</p>
         </div>
     </section>
+
+    <section class="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow mt-8">
+        <h2 class="text-2xl font-bold mb-4">Add New Event</h2>
+        <form id="eventForm" class="grid md:grid-cols-3 gap-4">
+            <input type="text" id="title" placeholder="Event Title" class="border p-3 rounded"/>
+            <input type="text" id="category" placeholder="Category" class="border p-3 rounded"/>
+            <input type="number" id="seats" placeholder="Seats" class="border p-3 rounded"/>
+            <button type="submit" class="bg-blue-600 text-white p-3 rounded hover:bg-blue-700 md:col-span-3">
+                Add Event
+            </button>
+        </form>
+    </section>
+
+
 </body>
 </html>
