@@ -183,3 +183,19 @@ function saveToLocalStorage() {
         JSON.stringify(events)
     );
 }
+
+function loadEvents() {
+
+    const storedEvents =
+        localStorage.getItem("events");
+
+    if (storedEvents) {
+
+        events = JSON.parse(storedEvents);
+
+    }
+
+    renderEvents();
+}
+
+loadEvents();
