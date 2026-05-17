@@ -176,3 +176,10 @@ const searchInput =
 
     renderEvents(filteredEvents);
 });
+function saveToLocalStorage() {
+
+    localStorage.setItem(
+        "events",
+        JSON.stringify(events)
+    );
+}
