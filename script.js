@@ -1,0 +1,69 @@
+let events = [
+    {
+        id: 1,
+        title: "AI Bootcamp",
+        category: "Technology",
+        seats: 30,
+        registered: 12
+    },
+
+    {
+        id: 2,
+        title: "Business Summit",
+        category: "Business",
+        seats: 20,
+        registered: 5
+    }
+];
+const eventContainer = document.getElementById("eventContainer");
+
+    function renderEvents(eventList = events) {
+
+    eventContainer.innerHTML = "";
+
+    eventList.forEach(event => {
+
+        const remaining = event.seats - event.registered;
+
+        const card = document.createElement("div");
+
+        card.className =
+        "bg-white p-6 rounded-xl shadow";
+
+        card.innerHTML = `
+        <h2 class="text-2xl font-bold mb-2">
+            ${event.title}
+        </h2>
+
+        <p class="text-gray-600 mb-2">
+            ${event.category}
+        </p>
+
+        <p>Total Seats: ${event.seats}</p>
+        <p>Registered: ${event.registered}</p>
+        <p>Remaining: ${remaining}</p>
+
+        <div class="flex gap-2 mt-4">
+
+            <button
+            onclick="registerEvent(${event.id})"
+            class="bg-green-500 text-white px-4 py-2 rounded"
+            >
+            Register
+            </button>
+
+            <button
+            onclick="cancelRegistration(${event.id})"
+            class="bg-red-500 text-white px-4 py-2 rounded"
+            >
+            Cancel
+            </button>
+
+        </div>
+        `;
+
+        eventContainer.appendChild(card);
+    });
+
+    updateStatistics();
+}
